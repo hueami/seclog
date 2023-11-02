@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer').themes.github;
+const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -67,7 +67,7 @@ const config = {
         title: 'seclog',
         logo: {
           alt: 'seclog Logo',
-          src: 'img/logo.svg',
+          src: 'img/hacker.svg',
         },
         items: [
           //{
