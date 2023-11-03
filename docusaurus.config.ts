@@ -1,3 +1,6 @@
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
@@ -5,7 +8,8 @@ const lightCodeTheme = require('prism-react-renderer').themes.github;
 const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
-const config = {
+
+const config: Config = {
   title: 'seclog',
   tagline: 'Security stuff and CTF write-ups',
   favicon: 'img/favicon.ico',
@@ -36,14 +40,7 @@ const config = {
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        //docs: {
-        //  sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-        //  editUrl:
-        //    'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        //},
+      {
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
@@ -54,7 +51,7 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+      } satisfies Preset.Options,
     ],
   ],
 
@@ -70,41 +67,12 @@ const config = {
           src: 'img/hacker.svg',
         },
         items: [
-          //{
-          //  type: 'docSidebar',
-          //  sidebarId: 'tutorialSidebar',
-          //  position: 'left',
-          //  label: 'Tutorial',
-          //},
           {to: '/blog', label: 'Blog', position: 'left'},
-          // {
-          //   href: 'https://github.com/facebook/docusaurus',
-          //   label: 'GitHub',
-          //   position: 'right',
-          // },
         ],
       },
       footer: {
         style: 'dark',
         links: [
-          // {
-          //   title: 'Docs',
-          //   items: [
-          //     {
-          //       label: 'Tutorial',
-          //       to: '/docs/intro',
-          //     },
-          //   ],
-          // },
-          //{
-          //  title: 'Content',
-          //  items: [
-          //    {
-          //     label: 'Blog',
-          //      to: '/blog',
-          //    },
-          //  ],
-          //},
           {
             title: 'Links',
             items: [
