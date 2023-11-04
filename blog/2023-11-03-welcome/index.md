@@ -1,11 +1,9 @@
 ---
 slug: welcome
-title: Welcome
+title: Welcome to my blog!
 authors: [hueami]
 tags: [welcome]
 ---
-
-Welcome to my blog!
 
 As a software developer with a keen interest in IT security, I’ve decided to create this space to share my thoughts, findings, and experiences related to this fascinating field.
 
