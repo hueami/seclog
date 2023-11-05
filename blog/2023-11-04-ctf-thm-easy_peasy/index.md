@@ -1,5 +1,5 @@
 ---
-slug: easy peasy
+slug: easy-peasy
 title: Easy Peasy
 authors: [hueami]
 tags: [tryhackme, ctf]

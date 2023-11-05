@@ -1,5 +1,5 @@
 ---
-slug: lpe workshop
+slug: lpe-workshop
 title: Linux Privilege Escalation Workshop
 authors: [hueami]
 tags: [lpe, privilege escalation, linux, ctf]
