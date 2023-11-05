@@ -3,6 +3,7 @@ slug: easy-peasy
 title: Easy Peasy
 authors: [hueami]
 tags: [tryhackme, ctf]
+comments: true
 ---
 Welcome to my first write-up for the CTF room [Easy Peasy on tryhackme](https://tryhackme.com/room/easypeasyctf). Let's dive into the fascinating world of Capture The Flag challenges!
 

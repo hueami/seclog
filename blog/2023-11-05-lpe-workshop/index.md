@@ -3,6 +3,7 @@ slug: lpe-workshop
 title: Linux Privilege Escalation Workshop
 authors: [hueami]
 tags: [lpe, privilege escalation, linux, ctf]
+comments: true
 ---
 ## A Deep Dive into Linux Privilege Escalation - Workshop now on GitHub!
 In 2022, I had the pleasure of conducting a workshop on Linux Privilege Escalation (LPE) at my workplace. The special thing about it? We’ve made all the materials available on [GitHub](https://github.com/hueami/lpe_workshop) so that anyone can conduct this workshop themselves!
@@ -17,7 +18,7 @@ We also learned how to exploit vulnerabilities in file permissions and how to us
 ### How can you participate?
 For anyone interested in this topic, we have hosted all the necessary files for the workshop on [GitHub](https://github.com/hueami/lpe_workshop). There you will find everything you need to start your own LPE adventure!
 
-We look forward to your feedback and suggestions, either on GitHub or via email. It would be great if we could expand this workshop with more exciting LPE topics.
+We look forward to your feedback and suggestions, either as disqus comment at the end of the blog post, on GitHub, or via email. It would be great if we could expand this workshop with more exciting LPE topics.
 
 ### Final Thoughts
 Conducting this workshop was an incredibly enriching experience. Not only did it help us deepen our understanding of Linux and security, but it also showed us the importance of continuous learning and expanding our skills.
