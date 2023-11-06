@@ -112,6 +112,14 @@ const config: Config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      algolia: {
+        appId: 'I0W7YL064T',
+        apiKey: 'xxxxxxxxxxxxxxxxxxxx',
+        indexName: 'johannes-merkert',
+        contextualSearch: true,
+        searchParameters: {},
+        searchPagePath: 'search',
+      },
     }),
 };
 
