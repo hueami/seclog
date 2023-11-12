@@ -9,6 +9,8 @@ Welcome to my first write-up for the CTF room [Easy Peasy on tryhackme](https://
 
 ### Task 1: Enumeration through nmap
 
+<!-- truncate -->
+
 1. Our first step is to understand the landscape we're dealing with. We'll start by enumerating all the ports using nmap.
 
 ```bash

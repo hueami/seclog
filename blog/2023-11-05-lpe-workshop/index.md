@@ -11,6 +11,9 @@ In 2022, I had the pleasure of conducting a workshop on Linux Privilege Escalati
 Together with a colleague, we spent an exciting time delving deep into this complex and fascinating topic. The workshop lasted about 1.5 to 2 hours - a short but intense period where we immersed ourselves in the depths of Linux permissions, kernel exploits, and much more.
 
 ### What did we do?
+
+<!-- truncate -->
+
 Our workshop focused on various aspects of Linux Privilege Escalation. We explored topics like Capabilities, CronJobs, and Kernel Exploits. We used various tools and resources, including gtfobins and Linux Exploit Suggester to gain root permissions on a vulnerable virtual machine (VM, Dockerfile and Vagrantfile is available).
 
 We also learned how to exploit vulnerabilities in file permissions and how to use Wildcard Injection to gain root privileges. It was an intense but rewarding experience that gave us a deep insight into the world of Linux security.
