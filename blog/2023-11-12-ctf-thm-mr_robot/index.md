@@ -194,7 +194,7 @@ awk '!seen[$0]++' ~/Downloads/xxxxxx.dic > xxxxxx.txt
 
 The password attack with the user admin was not successful, so I tried mrrobot and then elliot. That finally was successful, and I had the password for the WordPress admin panel.
 
-One way to perform a Remote Code Execution (RCE) on a WordPress instance is to edit a page so that it serves a PHP reverse shell. You can do this in the Appearance/Themes/Editor section. I replaced the content of the 404.php template with the pentestmonkey PHP reverse shell.
+One way to perform a Remote Code Execution (RCE) on a WordPress instance is to edit a page so that it serves a PHP reverse shell. You can do this in the Appearance/Themes/Editor section. I replaced the content of the 404.php template with the pentestmonkey PHP reverse shell. If you are looking for reverse shells, check out [revshells](https://www.revshells.com/).
 
 On my local machine, I started netcat to listen on the port I configured the reverse shell with:
 
