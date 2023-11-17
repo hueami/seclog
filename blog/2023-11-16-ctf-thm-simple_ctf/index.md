@@ -10,6 +10,9 @@ comments: true
 Hello everyone, welcome to another write-up of a TryHackMe room. Today, I will show you how I solved the Simple CTF room, which is a beginner-friendly challenge that covers some basic concepts and tools of ethical hacking. Let’s get started!
 
 ### Reconnaissance
+
+<!-- truncate -->
+
 The first step is to perform reconnaissance on the target machine and find out what ports and services are running on it. We canuse `nmap` for this task. I ran the following command to scan all ports without trying to obtain further information, because this is much faster. Based on the result I could then run a more advanced scan only against the ports I am interested in.
 
 ```bash
