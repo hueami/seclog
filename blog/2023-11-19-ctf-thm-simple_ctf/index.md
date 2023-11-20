@@ -7,7 +7,7 @@ comments: true
 ---
 
 ## Simple CTF Write-Up
-Hello everyone, welcome to another write-up of a TryHackMe room. Today, I will show you how I solved the Simple CTF room, which is a beginner-friendly challenge that covers some basic concepts and tools of ethical hacking. Let’s get started!
+Hello everyone, welcome to another write-up of a TryHackMe room. Today, I will show you how I solved the [https://tryhackme.com/room/easyctf](Simple CTF room), which is a beginner-friendly challenge that covers some basic concepts and tools of ethical hacking. Let’s get started!
 
 ### Reconnaissance
 
