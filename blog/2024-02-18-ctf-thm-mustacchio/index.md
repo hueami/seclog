@@ -8,7 +8,7 @@ comments: true
 
 ## Solving the Mustacchio Room on TryHackMe
 
-This post details a comprehensive walkthrough of identifying and exploiting vulnerabilities within the as 'easy' tagged Mustacchio room on TryHackMe. The objective is to systematically enumerate services, exploit found vulnerabilities for initial access, escalate privileges, and capture flags, providing a technical perspective on ethical hacking practices.
+This post details a comprehensive walkthrough of identifying and exploiting vulnerabilities within the as 'easy' tagged [Mustacchio](https://tryhackme.com/room/mustacchio) room on TryHackMe. The objective is to systematically enumerate services, exploit found vulnerabilities for initial access, escalate privileges, and capture flags, providing a technical perspective on ethical hacking practices.
 
 ### Initial Enumeration with Nmap
 

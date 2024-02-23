@@ -16,7 +16,7 @@ Hello everyone, welcome to another write-up of a TryHackMe room. Today, I will s
 The first step is to perform reconnaissance on the target machine and find out what ports and services are running on it. We canuse `nmap` for this task. I ran the following command to scan all ports without trying to obtain further information, because this is much faster. Based on the result I could then run a more advanced scan only against the ports I am interested in.
 
 ```bash
-nmap 10.10.227.55 -p0-
+nmap [target IP] -p0-
 ```
 
 With the scan results we can answer questions 1 and 2.
@@ -29,7 +29,7 @@ I opened the target machine in the browser but I only got an Apache2 Ubuntu Defa
 To uncover hidden directories, we can use a tool for bruteforcing firectories. I used feroxbuster and a directory wordlist from [SecLists](https://github.com/danielmiessler/SecLists).
 
 ```bash
-feroxbuster -u http://10.10.227.55 -w ~/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
+feroxbuster -u http://[target IP] -w ~/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
 ```
 
 Success! feroxbuster revealed a directory, which turned out to be a default page of a CMS called CMS Made Simple. The version of the CMS was conveniently located at the bottom of the page, which was 2.2.8. Time to dig deeper! 

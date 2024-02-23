@@ -14,10 +14,10 @@ Welcome to my first write-up for the CTF room [Easy Peasy on tryhackme](https://
 1. Our first step is to understand the landscape we're dealing with. We'll start by enumerating all the ports using nmap.
 
 ```bash
-$ sudo nmap 10.10.160.74 -p0-
+$ sudo nmap [target IP] -p0-
 
 Starting Nmap 7.94 ( https://nmap.org ) at 2023-11-03 21:33 CET
-Nmap scan report for 10.10.160.74
+Nmap scan report for [target IP]
 Host is up (0.057s latency).
 Not shown: 65533 closed tcp ports (reset)
 PORT      STATE SERVICE
@@ -29,10 +29,10 @@ This fast enumeration over all ports gives us our first piece of the puzzle - th
 Next, we perform a detailed scan over the open ports.
 
 ```bash
-sudo nmap 10.10.160.74 -p080,6498,65524 -sV -A -T5
+sudo nmap [target IP] -p080,6498,65524 -sV -A -T5
 
 Starting Nmap 7.94 ( https://nmap.org ) at 2023-11-03 21:40 CET
-Nmap scan report for 10.10.160.74
+Nmap scan report for [target IP]
 Host is up (0.050s latency).
 
 PORT      STATE SERVICE VERSION
@@ -52,15 +52,7 @@ PORT      STATE SERVICE VERSION
 |_http-title: Apache2 Debian Default Page: It works
 |_http-server-header: Apache/2.4.43 (Ubuntu)
 Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-Aggressive OS guesses: Linux 3.1 (95%), Linux 3.2 (95%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (95%), ASUS RT-N56U WAP (Linux 3.4) (93%), Linux 3.16 (93%), Linux 2.6.32 (93%), Linux 3.1 - 3.2 (93%), Linux 3.11 (93%), Linux 3.2 - 4.9 (93%), Linux 3.7 - 3.10 (93%)
-No exact OS matches for host (test conditions non-ideal).
-Network Distance: 2 hops
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-
-TRACEROUTE (using port 80/tcp)
-HOP RTT      ADDRESS
-1   51.18 ms 10.8.0.1
-2   51.32 ms 10.10.5.48
+Aggressive OS guesses: Linux 3.1 (95%) [...]
 ```
 This information helps us to answer questions 2 and 3.
 
@@ -70,7 +62,7 @@ With our enumeration complete, we move on to compromising the machine.
 The room provides a task file that appears to be a wordlist. We’ll save this for later use.
 We then proceed to scan subdirectories using feroxbuster, with the directory wordlist `SecLists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt``.
 ```bash
-$ feroxbuster -u http://10.10.160.74 -w ~/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
+$ feroxbuster -u http://[target IP] -w ~/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
 ```
 Feroxbuster uncovers a directory with another subdirectory. Both directories contain an image, but only the second subdirectory contains hidden information in the source code.
 
@@ -123,11 +115,8 @@ This suggested that there might be a cron job running that I could exploit to ga
 
 ```bash
 $ cat /etc/crontab
-# /etc/crontab: system-wide crontab
-# Unlike any other crontab you don't have to run the `crontab'
-# command to install the new version when you edit this file
-# and files in /etc/cron.d. These files also have username fields,
-# that none of the other crontabs do.
+
+[..]
 
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
