@@ -10,6 +10,8 @@ comments: true
 
 This document provides a comprehensive write-up of the [Lazy Admin](https://tryhackme.com/room/lazyadmin) room on TryHackMe, highlighting a methodical approach to penetration testing within a controlled environment. The challenge is tagged as easy and focuses on exploiting common vulnerabilities found in web applications and misconfigurations within Unix systems.
 
+<!-- truncate -->
+
 ### Initial Reconnaissance
 
 #### Web Enumeration
