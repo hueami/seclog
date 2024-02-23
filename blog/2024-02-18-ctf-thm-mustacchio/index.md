@@ -10,6 +10,8 @@ comments: true
 
 This post details a comprehensive walkthrough of identifying and exploiting vulnerabilities within the as 'easy' tagged [Mustacchio](https://tryhackme.com/room/mustacchio) room on TryHackMe. The objective is to systematically enumerate services, exploit found vulnerabilities for initial access, escalate privileges, and capture flags, providing a technical perspective on ethical hacking practices.
 
+<!-- truncate -->
+
 ### Initial Enumeration with Nmap
 
 The initial step involved conducting a network scan using `nmap` to enumerate open ports and available services on the target:
