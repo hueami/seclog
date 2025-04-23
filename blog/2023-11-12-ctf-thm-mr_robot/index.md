@@ -30,7 +30,7 @@ This basic nmap scan over all ports revealed that the SSH port was closed, but p
 To gather more information, I ran a comprehensive nmap scan over the found ports:
 
 ```bash
-sudo nmap [target IP] -p22,80,443 -sV -A
+sudo nmap [target IP] -p22,80,443 -A
 
 
 PORT    STATE  SERVICE  VERSION
