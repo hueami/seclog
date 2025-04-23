@@ -29,7 +29,7 @@ This fast enumeration over all ports gives us our first piece of the puzzle - th
 Next, we perform a detailed scan over the open ports.
 
 ```bash
-sudo nmap [target IP] -p080,6498,65524 -sV -A -T5
+sudo nmap [target IP] -p080,6498,65524 -A -T5
 
 Starting Nmap 7.94 ( https://nmap.org ) at 2023-11-03 21:40 CET
 Nmap scan report for [target IP]
